@@ -1,0 +1,40 @@
+<button type="button" class="btn btn-primary" routerLink="/dashboard"><i class="bi bi-house-fill"></i>
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+      <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z"/>
+    </svg>
+  </button>
+<div class="withdraw-form" >
+    <form [formGroup]="withdrawForm" (ngSubmit)="withdraw()">
+        
+      <h1 appHighlight>Withdraw</h1>
+      <div class="content">
+        <div class="input-field">
+          <input type="number"  autocomplete="nope" formControlName="acno1" name="acno1" placeholder="Enter account number" >
+        </div>
+
+         <div *ngIf="(this.withdrawForm.get('acno1')?.touched||this.withdrawForm.get('acno1')?.dirty)&&(this.withdrawForm.get('acno1')?.errors)" style="color: red; text-align: center;">Invalid Account number</div> 
+        
+
+        <div class="input-field">
+          <input type="password"  autocomplete="new-password" formControlName="password1" name="password1" placeholder="Enter password">
+        </div>
+
+        <div *ngIf="(this.withdrawForm.get('password1')?.touched||this.withdrawForm.get('password1')?.dirty)&&(this.withdrawForm.get('password1')?.errors)" style="color: red; text-align: center;">Invalid password</div>
+
+        <div class="input-field">
+            <input type="number"   formControlName="amount1" name="amount1" placeholder="Enter amount">
+          </div>
+  
+          <div *ngIf="(this.withdrawForm.get('amount1')?.touched||this.withdrawForm.get('amount1')?.dirty)&&(this.withdrawForm.get('amount1')?.errors)" style="color: red; text-align: center;">Invalid amount</div>
+
+          <div style="color: red;">{{err}}</div>
+
+        </div>
+        <div class="action">
+            <button type="submit" >Withdraw</button>
+          </div>
+    </form>
+
+</div>
+
+

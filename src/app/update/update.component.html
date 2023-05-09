@@ -1,0 +1,40 @@
+<button type="button" class="btn btn-primary" routerLink="/dashboard"><i class="bi bi-house-fill"></i>
+    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+        <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z"/>
+      </svg>
+    </button>
+<div class="update-form">
+    <form [formGroup]="updateForm" (ngSubmit)="update()">
+        <h1>Update account</h1>
+        <div class="content">
+            <div class="input-field">
+                <input type="text" autocomplete="nope" formControlName="firstName" name="firstName"
+                    placeholder="Enter Firstname">
+            </div>
+
+            <div *ngIf="(this.updateForm.get('firstName')?.touched||this.updateForm.get('firstName')?.dirty)&&(this.updateForm.get('firstName')?.errors)"
+                style="color: red; text-align: center;">Invalid firstName</div>
+
+            <div class="input-field">
+                <input type="text" formControlName="secondName" name="secondName" placeholder="Enter Secondname">
+            </div>
+
+            <div *ngIf="(this.updateForm.get('secondName')?.touched||this.updateForm.get('secondName')?.dirty)&&(this.updateForm.get('secondName')?.errors)"
+                style="color: red; text-align: center;">Invalid Secondname</div>
+
+            <div class="input-field">
+                <input type="number" autocomplete="nope" formControlName="phoneNo" name="phoneNo"
+                    placeholder="Enter Phone number">
+            </div>
+
+            <div *ngIf="(this.updateForm.get('phoneNo')?.touched||this.updateForm.get('phoneNo')?.dirty)&&(this.updateForm.get('phoneNo')?.errors)"
+                style="color: red; text-align: center;">Invalid Phonenumber</div>
+
+            <div style="color: red;">{{error}}</div>
+
+                <div class="action">
+                    <button type="submit">Submit</button>
+                </div>
+            </div>
+    </form>
+</div>

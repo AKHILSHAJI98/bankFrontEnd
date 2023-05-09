@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <button class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/account">
+            Account details
+          </a>
+        </button>
+        <button class="nav-item">
+          <a class="nav-link" routerLink="/update">Update account</a>
+        </button>
+        <button class="nav-item">
+          <a class="nav-link" routerLink="/transaction">Transaction history</a>
+        </button>
+        <button class="nav-item">
+          <a class="nav-link" routerLink="/balance">Balance Enquiry</a>
+        </button>
+        <button mat-button [matMenuTriggerFor]="menu1" style="text-decoration: none;">Our Services<mat-icon>keyboard_arrow_down</mat-icon></button>
+        <mat-menu #menu1="matMenu">
+          <button mat-menu-item routerLink="/transfer">Money transfer</button>
+          <button mat-menu-item routerLink="/deposit">Deposit</button>
+          <button mat-menu-item routerLink="/withdraw">Withdraw</button>
+        </mat-menu>
+      </ul>
+      <button mat-button [matMenuTriggerFor]="menu2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="16" fill="currentColor" class="bi bi-list"
+          viewBox="0 0 16 16">
+          <path fill-rule="evenodd"
+            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+        </svg>
+      </button>
+      <mat-menu #menu2="matMenu">
+        <button mat-menu-item (click)="delete()"><mat-icon>delete</mat-icon>Delete Account</button>
+        <button mat-menu-item (click)="logout()"><mat-icon>exit_to_app</mat-icon>Logout</button>
+      </mat-menu>
+    </div>
+  </div>
+</nav>
+<div>
+  <h1 style="color: white;">Welcome {{user}}</h1>
+</div>

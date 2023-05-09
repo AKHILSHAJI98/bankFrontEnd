@@ -1,0 +1,55 @@
+<div class="register-form">
+    <form [formGroup]="registerForm" (ngSubmit)="register()">
+        <h1>Register</h1>
+        <div class="content">
+            <div class="input-field">
+                <input type="text" autocomplete="nope" formControlName="firstName" name="firstName"
+                    placeholder="Enter Firstname">
+            </div>
+
+            <div *ngIf="(this.registerForm.get('firstName')?.touched||this.registerForm.get('firstName')?.dirty)&&(this.registerForm.get('firstName')?.errors)"
+                style="color: red; text-align: center;">Invalid firstName</div>
+
+            <div class="input-field">
+                <input type="text" formControlName="secondName" name="secondName" placeholder="Enter Secondname">
+            </div>
+
+            <div *ngIf="(this.registerForm.get('secondName')?.touched||this.registerForm.get('secondName')?.dirty)&&(this.registerForm.get('secondName')?.errors)"
+                style="color: red; text-align: center;">Invalid Secondname</div>
+
+            <div class="input-field">
+                <input type="number" autocomplete="nope" formControlName="phoneNo" name="phoneNo"
+                    placeholder="Enter Phone number">
+            </div>
+
+            <div *ngIf="(this.registerForm.get('phoneNo')?.touched||this.registerForm.get('phoneNo')?.dirty)&&(this.registerForm.get('phoneNo')?.errors)"
+                style="color: red; text-align: center;">Invalid Phonenumber</div>
+
+                <div class="input-field">
+                    <input type="number" autocomplete="none" formControlName="acno" name="acno"
+                      placeholder="Enter account number">
+                  </div>
+            
+                  <div
+                    *ngIf="(this.registerForm.get('acno')?.touched||this.registerForm.get('acno')?.dirty)&&(this.registerForm.get('acno')?.errors)"
+                    style="color: red; text-align: center;">Invalid account number</div>   
+
+            <div class="input-field">
+                <input type="password" autocomplete="new-password" formControlName="password" name="password"
+                    placeholder="Enter password">
+            </div>
+
+            <div *ngIf="(this.registerForm.get('password')?.touched||this.registerForm.get('password')?.dirty)&&(this.registerForm.get('password')?.errors)"
+                style="color: red; text-align: center;">Invalid password</div>
+
+                
+             <div>
+                <div>Already have an account?<a routerLink=""> Login</a></div>
+             </div> 
+             <div style="color: red;">{{error}}</div>
+            <div class="action">
+                <button type="submit">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
